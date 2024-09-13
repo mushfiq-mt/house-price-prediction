@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>House Price</title>
+
+<!-- External CSS -->
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+
+
+</head>
+
+<body>
+
+<!--Upload image to static/images using Flask-->
+    <h1>House Price Prediction</h1>
+    <form action="{{ url_for('predict') }}" method="POST" enctype="multipart/form-data">
+        Square_Footage(500-5000 sqft): <input type="number" name="Square_Footage"><br><br>
+        No.of Bedrooms <input type="number" name="Num_Bedrooms"><br><br>
+        No.of Bathrooms <input type="number" name="Num_Bathrooms"><br><br>
+        Lot_size_in Acre(0.5-5) <input type="number" name="Lot_Size" step="0.01" min="0"><br><br>  
+        Garage Size <input type="number" name="Garage_Size"><br><br>
+        Neighborhood Quality(1-10) <input type="number" name="Neighborhood_Quality"><br><br>
+        Age <input type="number" name="Year_Built"><br><br><br>
+        <button type="submit"><b>Submit</b></button>
+    </form>
+
+    <br>
+    <p>{{ prediction_text }}</p>
+  
+</body>
+</html>
